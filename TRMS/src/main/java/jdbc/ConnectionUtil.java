@@ -10,6 +10,7 @@ import java.util.Properties;
 
 public class ConnectionUtil {
 	private static Connection conn = null;
+	
 	public static Connection getConnection() throws SQLException, IOException{
 		if(conn== null) {
 			Properties prop = new Properties();

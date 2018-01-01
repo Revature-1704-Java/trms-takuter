@@ -1,10 +1,8 @@
-package com.companyoftim.users;
+package com.companyoftim.beans;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.ResultSet;
-
-import com.companyoftim.beans.Reimbursement;
 
 public class Employee {
 	private int id;

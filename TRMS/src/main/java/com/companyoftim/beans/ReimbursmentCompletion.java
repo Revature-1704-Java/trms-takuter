@@ -4,6 +4,7 @@ public class ReimbursmentCompletion {
 	String filename;
 	int reimID;
 	int grduplID;
+	int minPass;
 	
 	boolean SPVR;
 	boolean BenCo;

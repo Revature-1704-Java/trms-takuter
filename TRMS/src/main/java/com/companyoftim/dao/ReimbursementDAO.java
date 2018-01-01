@@ -14,31 +14,25 @@ import jdbc.ConnectionUtil;
 
 
 public class ReimbursementDAO {
-	public List<Reimbursement> getAllReimbursements() {
-		PreparedStatement ps = null;
-		List<Reimbursement> reims = new ArrayList<Reimbursement>();
-		Reimbursement r = null;
+	
+	private static final ReimbursementDAO reimD = new ReimbursementDAO();
+	
+	private ReimbursementDAO() {
+		
+	}
+	
+	public static ReimbursementDAO getInstance(){
+		CallableStatement cs = null;
+		try (Connection conn = ConnectionUtil.getConnection()) {
+			String sql = "{CALL CK_REIM_DATES()}";
+			cs = conn.prepareCall(sql);
+			cs.execute();
 
-		try(Connection conn = ConnectionUtil.getConnection()) {
-			r = new Reimbursement();
-			String sql = "SELECT * FROM REIMBURSEMENT";
-			ps = conn.prepareStatement(sql);
-
-			ResultSet rs = ps.executeQuery();
-
-			while (rs.next()) {
-				
-				reims.add(r);
-
-			}
-			rs.close();
-			ps.close();
-
+			cs.close();
 		} catch (Exception ex) {
 			ex.getMessage();
 		}
-
-		return reims;
+		return reimD;
 	}
 	
 	public List<Reimbursement> getAllReimbursements() {
@@ -68,7 +62,34 @@ public class ReimbursementDAO {
 		return reims;
 	}
 	
-	public List<Reimbursement> getAllReimbursements() {
+	public List<Reimbursement> getSubReimbursements() {
+		PreparedStatement ps = null;
+		List<Reimbursement> reims = new ArrayList<Reimbursement>();
+		Reimbursement r = null;
+
+		try(Connection conn = ConnectionUtil.getConnection()) {
+			r = new Reimbursement();
+			String sql = "SELECT * FROM REIMBURSEMENT";
+			ps = conn.prepareStatement(sql);
+
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				
+				reims.add(r);
+
+			}
+			rs.close();
+			ps.close();
+
+		} catch (Exception ex) {
+			ex.getMessage();
+		}
+
+		return reims;
+	}
+	
+	public List<Reimbursement> getDeptReimbursements() {
 		PreparedStatement ps = null;
 		List<Reimbursement> reims = new ArrayList<Reimbursement>();
 		Reimbursement r = null;

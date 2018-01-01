@@ -5,11 +5,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import com.companyoftim.users.Employee;
+import com.companyoftim.beans.Employee;
 
 import jdbc.ConnectionUtil;
 
 public class EmployeeDAO {
+	
+	private static final EmployeeDAO empD = new EmployeeDAO();
+	
+	private EmployeeDAO() {
+		
+	}
+	
+	public static EmployeeDAO getInstance(){
+		return empD;
+	}
 	
 	public Employee getEmployeeInfo(int eid) {
 		PreparedStatement ps = null;
@@ -137,7 +147,7 @@ public class EmployeeDAO {
 		return exists;
 	}
 	
-	public boolean checkLogIn(String email, String pass) {
+	/*public boolean checkLogIn(String email, String pass) {
 		boolean exists=false;
 		try(Connection conn = ConnectionUtil.getConnection()) {
 			String sql = "SELECT * FROM EMPLOYEE WHERE EXISTS EMP_EMAIL = ? AND EMP_PASSWORD = ?";
@@ -164,7 +174,7 @@ public class EmployeeDAO {
 		}
 		
 		return exists;
-	}
+	}*/
 
 	public boolean isManager(int eid) {
 		boolean mngr=false;
