@@ -8,17 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class ReimAprvlServlet extends HttpServlet{
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		     throws ServletException, IOException{
-		         String jsonString = "{\"name\":\"Mehrab Rahman\"}";
-
+		         //String jsonString = "{\"name\":\"Mehrab Rahman\"}";
 		         response.setContentType("application/json");
 
 		         //send back Person object
 		    }
 	
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 		     throws ServletException, IOException{
-		response.sendRedirect("login	.html");
-		
+			response.sendRedirect("login.html");
 	}
+}

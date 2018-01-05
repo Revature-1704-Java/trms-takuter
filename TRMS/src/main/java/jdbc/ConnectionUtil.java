@@ -12,7 +12,7 @@ public class ConnectionUtil {
 	private static Connection conn = null;
 	
 	public static Connection getConnection() throws SQLException, IOException{
-		if(conn== null) {
+		if(conn== null || !conn.isValid(1)) {
 			Properties prop = new Properties();
 			InputStream in = new FileInputStream("connection.properties");
 			prop.load(in);

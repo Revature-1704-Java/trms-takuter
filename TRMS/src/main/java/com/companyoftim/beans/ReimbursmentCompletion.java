@@ -1,6 +1,6 @@
 package com.companyoftim.beans;
 
-public class ReimbursmentCompletion {
+public class ReimbursmentCompletion{
 	String filename;
 	int reimID;
 	int grduplID;

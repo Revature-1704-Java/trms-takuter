@@ -3,16 +3,16 @@ package com.companyoftim.beans;
 import java.math.BigDecimal;
 import java.sql.Date;
 
-public class Reimbursement {
+public class Reimbursement{
 	public int id;
 	private int empid;
 	
-	private Event evt;
 	private String evtype;
 	private Date enterdate;
 	private String reason;
 	private String workmissed;
-	private int grdForm;
+	private String grdForm;
+	private int passingGrade;
 	
 	private BigDecimal amount;
 	private BigDecimal predictedReim;
@@ -40,12 +40,7 @@ public class Reimbursement {
 	public void setEmpid(int empid) {
 		this.empid = empid;
 	}
-	public Event getEvt() {
-		return evt;
-	}
-	public void setEvt(Event evt) {
-		this.evt = evt;
-	}
+	
 	public String getEvtype() {
 		return evtype;
 	}
@@ -70,11 +65,19 @@ public class Reimbursement {
 	public void setWorkmissed(String workmissed) {
 		this.workmissed = workmissed;
 	}
-	public int getGrdForm() {
+	
+	public String getGrdForm() {
 		return grdForm;
 	}
-	public void setGrdForm(int grdForm) {
+	public void setGrdForm(String grdForm) {
 		this.grdForm = grdForm;
+	}
+	
+	public int getPassingGrade() {
+		return passingGrade;
+	}
+	public void setPassingGrade(int passingGrade) {
+		this.passingGrade = passingGrade;
 	}
 	public BigDecimal getAmount() {
 		return amount;

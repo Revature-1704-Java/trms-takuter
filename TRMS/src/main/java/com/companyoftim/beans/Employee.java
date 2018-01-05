@@ -1,22 +1,37 @@
 package com.companyoftim.beans;
 
 import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.ResultSet;
 
-public class Employee {
+public class Employee{
 	private int id;
 	private String fname;	
 	private String lname;
 	private String email;
 	private int dpt;
 	private int spvr;
+	private int emprole;
 	private BigDecimal totalReim;
 	
 	public Employee() {
 		
 	};
 	
+	
+	public Employee(int id, String fname, String lname, String email, int dpt, int spvr, int emprole,
+			BigDecimal totalReim) {
+		super();
+		this.id = id;
+		this.fname = fname;
+		this.lname = lname;
+		this.email = email;
+		this.dpt = dpt;
+		this.spvr = spvr;
+		this.emprole = emprole;
+		this.totalReim = totalReim;
+	}
+
+
+
 	public Employee(int id, String fname, String lname, int dpt, int spvr, BigDecimal totalReim) {
 		super();
 		this.id = id;
@@ -34,6 +49,8 @@ public class Employee {
 		this.spvr = spvr;
 		this.email=email;
 	}
+	
+	
 
 	public int getId() {
 		return id;
@@ -90,11 +107,7 @@ public class Employee {
 	public void setTotalReim(BigDecimal totalReim) {
 		this.totalReim = totalReim;
 	}
-	
-	public void insertMe(){
-		
-	}
-	
+
 	
 	
 	
